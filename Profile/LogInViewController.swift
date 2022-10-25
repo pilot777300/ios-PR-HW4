@@ -8,14 +8,15 @@
 import UIKit
 
 class LogInViewController: UIViewController {
- 
-    var loginDelegate: LoginViewControllerDelegate?
     
-    
+
     private lazy var logo = UIImageView()
   lazy var email = UITextField()
   lazy var password = UITextField()
  private lazy var loginButton = UIButton()
+    
+    var loginDelegate: LoginViewControllerDelegate = LoginInspector()
+  
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,9 +92,9 @@ class LogInViewController: UIViewController {
    
     @objc func loginButtonPressed(sender: UIButton) {
         let profileViewController = ProfileViewController()
-     
-        if ((loginDelegate?.check(login: email.text!, password: password.text!)) != nil ) == false
+        if Checker.shared.check(login: email.text!, password: password.text!) == true
                               {
+            
             self.navigationController?.pushViewController(profileViewController, animated: true)
         } else
     {
@@ -105,7 +106,8 @@ class LogInViewController: UIViewController {
                                     self.present(alert, animated: true)
         }
       
-       
+        
+        
 //        #if DEBUG
 //        let y = TestUserService()
 //        #else
@@ -120,8 +122,9 @@ class LogInViewController: UIViewController {
 //                         alert.addAction(UIAlertAction(title: "Попробую снова", style: .cancel, handler: nil))
 //                        self.present(alert, animated: true)
 //                    }
-   }
-    
+   
+     
+    }
     private func constraints() {
         let safeArea = view.safeAreaLayoutGuide
      NSLayoutConstraint.activate([

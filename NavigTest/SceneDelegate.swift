@@ -10,18 +10,20 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var lVC = LogInViewController()
-    var t = MyLoginFactory()
-    
+
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        
+        let factory = MyLoginFactory()
+              let loginInspector = factory.makeLoginInspector()
+               let loginVC = LogInViewController()
+               loginVC.loginDelegate = loginInspector
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
         self.window?.rootViewController =  createTabBarController()
         self.window?.makeKeyAndVisible()
-        lVC.loginDelegate = t.makeLoginInspector() //LoginInspector()
-        
-        
+  
     }
     
     func createFeedViewController() -> UINavigationController {

@@ -13,48 +13,36 @@ final class Checker {
     static let shared = Checker()
     private init() {}
     
-   private let login: String = "user"
-     let password: String = "password"
+    let login: String = "user"
+     let password: String = "pass"
 
     
     func check( login:String, password: String) -> Bool {
-        let login = Checker.shared.login
-        let password = Checker.shared.password
-        
-    if (login == login && password == password) {
-            return true
-        }
-      return false
+      return  login == Checker.shared.login && password == Checker.shared.password
     }
 }
 
 protocol LoginViewControllerDelegate {
    func check( login:String, password: String) -> Bool
+   
 }
 
 struct LoginInspector: LoginViewControllerDelegate {
 
     func check(login: String, password: String) -> Bool {
         let x = LogInViewController()
-    if (Checker.shared.check(login: x.email.text ?? "no data", password: x.password.text ?? "no data"))
-        {
-        return  true
-    } 
-  return false
+     let v = Checker.shared.check(login: x.email.text ?? "no " , password: x.password.text ?? "no")
+       return v
     }
 }
 
 protocol Loginfactory {
-    func makeLoginInspector() -> LoginInspector?
+    func makeLoginInspector() -> LoginInspector
 }
 
 struct MyLoginFactory:Loginfactory {
-    func makeLoginInspector() -> LoginInspector? {
-        let e = LogInViewController()
-        let pass = Checker.shared.password
-        if e.password.text == pass {
-        return LoginInspector()
-        }
-        return nil
+    func makeLoginInspector() -> LoginInspector {
+        LoginInspector()
         }
     }
+
