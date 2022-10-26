@@ -92,21 +92,18 @@ class LogInViewController: UIViewController {
    
     @objc func loginButtonPressed(sender: UIButton) {
         let profileViewController = ProfileViewController()
-        let insp = LoginInspector()
-        
-        if  insp.check(login: email.text!, password: password.text!) == true
+        if  loginDelegate.check(login: email.text!, password: password.text!) == true
                               {
-            
             self.navigationController?.pushViewController(profileViewController, animated: true)
         } else
-    {
+                                {
     
             let alert = UIAlertController(title: "Ошибка",
                                         message: "Неправильный логин или пароль",
                                         preferredStyle: .alert)
                                 alert.addAction(UIAlertAction(title: "Попробую снова", style: .cancel, handler: nil))
                                     self.present(alert, animated: true)
-        }
+                                    }
       
         
         

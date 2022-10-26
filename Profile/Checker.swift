@@ -13,8 +13,8 @@ final class Checker {
     static let shared = Checker()
     private init() {}
     
-    let login: String = "user"
-     let password: String = "pass"
+  private  let login: String = "user"
+   private  let password: String = "pass"
 
     
     func check( login:String, password: String) -> Bool {
@@ -30,7 +30,7 @@ protocol LoginViewControllerDelegate {
 struct LoginInspector: LoginViewControllerDelegate {
 
     func check(login: String, password: String) -> Bool {
-        let v = Checker.shared.check(login: Checker.shared.login , password: Checker.shared.password)
+        let v = Checker.shared.check(login: login, password: password)
        return v
     }
 }
