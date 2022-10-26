@@ -92,7 +92,9 @@ class LogInViewController: UIViewController {
    
     @objc func loginButtonPressed(sender: UIButton) {
         let profileViewController = ProfileViewController()
-        if Checker.shared.check(login: email.text!, password: password.text!) == true
+        let insp = LoginInspector()
+        
+        if  insp.check(login: email.text!, password: password.text!) == true
                               {
             
             self.navigationController?.pushViewController(profileViewController, animated: true)

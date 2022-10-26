@@ -30,8 +30,7 @@ protocol LoginViewControllerDelegate {
 struct LoginInspector: LoginViewControllerDelegate {
 
     func check(login: String, password: String) -> Bool {
-        let x = LogInViewController()
-     let v = Checker.shared.check(login: x.email.text ?? "no " , password: x.password.text ?? "no")
+        let v = Checker.shared.check(login: Checker.shared.login , password: Checker.shared.password)
        return v
     }
 }

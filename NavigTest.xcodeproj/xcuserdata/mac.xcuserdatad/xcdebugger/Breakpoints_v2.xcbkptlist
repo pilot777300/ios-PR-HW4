@@ -14,8 +14,8 @@
             filePath = "Profile/LogInViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "loginButtonPressed(sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "Profile/LogInViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "loginButtonPressed(sender:)"
             landmarkType = "7">
          </BreakpointContent>
